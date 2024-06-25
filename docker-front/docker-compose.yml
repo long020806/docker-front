@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  dockerfront:
+    image: dockerfront
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+    # EXPOSE主要用于在构建阶段声明容器需要使用的端口，而ports主要用于在运行阶段定义主机和容器之间的端口映射关系
+      - 3000:80

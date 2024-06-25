@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  viteproject:
+    image: viteproject
+    # 磁盘映射
+    volumes:
+      - D:\code\end\docker\03_dev\vite-project:/usr/src/app
+    stdin_open: true
+    tty: true
+    environment:
+      - NODE_ENV=development
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
